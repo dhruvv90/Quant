@@ -2,7 +2,6 @@
 """
 Created on Wed Sep 07 03:04:28 2016
 
-@author: Verma
 
 # An Experimental module which generates simulated values of the stock
 # May come in handy to price any derivative if required

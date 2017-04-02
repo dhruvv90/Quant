@@ -3,8 +3,6 @@
 """
 Created on Sat Mar 19 02:43:33 2016
 
-@author: Verma
-
 
 # Fetches data for equities from Yahoo finance
 # Generates and plots series of returns and basic performance
