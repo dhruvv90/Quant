@@ -58,5 +58,5 @@ resultArray = []
 for x in range(nbIter):
     res = gbm(stockInit,timeStep,mean,vol)
     resultArray.append(res)
-print np.average(resultArray)
+print (np.average(resultArray))
 print (time.time()-start_time)

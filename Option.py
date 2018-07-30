@@ -102,12 +102,12 @@ class Option:
 
 #Display stats
     def stats(s):
-        print "Option type : %s"%("Call" if s.type == "c" else "Put")
-        print "Option Price : " , s.priceBS()
-        print "Delta : ", s.delta()
-        print "Gamma : ", s.gamma()
-        print "Vega : ", s.vega()
-        print "Theta : ", s.theta()
+        print ("Option type : %d "%("Call" if s.type == "c" else "Put"))
+        print ("Option Price : " , s.priceBS())
+        print ("Delta : ", s.delta())
+        print ("Gamma : ", s.gamma())
+        print ("Vega : ", s.vega())
+        print ("Theta : ", s.theta())
     
 # Using Newton-Ralphson method for convergence        
     def impliedVol(s, marketPrice):
@@ -138,11 +138,11 @@ myOption = Option("c",6980.95,6950.0,0.0361111,0.1,0.2005)
 
 myOption.stats()
 
-print myOption.impliedVol(122.0)
-print "Ending at "
+print (myOption.impliedVol(122.0))
+print ("Ending at ")
 x = datetime.now()-start
 
-print x.total_seconds()
+print (x.total_seconds())
 
 
 

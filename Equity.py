@@ -10,6 +10,8 @@ Created on Sat Mar 19 02:43:33 2016
 
 
 """
+from pinance import Pinance
+
 
 import matplotlib.pyplot as plt
 from xlrd import open_workbook
@@ -20,7 +22,7 @@ import numpy as np
 from dateutil import parser
 from datetime import datetime,timedelta
 from yahoo_finance import Share
-from pandas.io.data import DataReader as dr
+from pandas_datareader import DataReader as dr
 import webbrowser as wb
 #today = pd.datetime.date(today)
 today = parser.parse("2016-3-18").date()
@@ -29,12 +31,13 @@ today = parser.parse("2016-3-18").date()
 
 
 
+
 exchangeHols = ["26/01/2016","07/03/2016","24/03/2016","25/03/2016",
             "14/04/2016","15/04/2016","19/04/2016",
             "06/07/2016","15/08/2016","05/09/2016","13/09/2016",
             "11/10/2016","12/10/2016","31/10/2016","14/11/2016"]
 
-
+#getQuotes("NSE:NIFTY")
 #######
 #
 ##   Note:-  All Dates passed in below functions are in datetime Format
@@ -92,7 +95,7 @@ def Returns(frame,period,col='Adj Close'):
 def Analyze(ticker,start_date,end_date,period):
     security = ticker    
     
-    if isinstance(security,basestring):    
+    if True:
         myFrame = fetchData(security,start_date,end_date)
             
         Price = myFrame['Adj Close']
@@ -119,17 +122,17 @@ def Analyze(ticker,start_date,end_date,period):
         plt.plot(ret)
         plt.axhline()
         returnFrame = pd.DataFrame({'Returns':ret})
-        plt.plot(MA(returnFrame,200,col='Returns'))
+        plt.plot(MA(returnFrame,period,col='Returns'))
+        plt.show()
 
     else:
         for tick in ticker:
             Analyze(tick,period)            
 
     
-start_date = parser.parse("2013-3-20").date()
-end_date = parser.parse("2016-4-13").date()    
+start_date = parser.parse("2017-1-20").date()
+end_date = parser.parse("2017-4-13").date()
 
 list = ['hdfc.ns','JUSTDIAL.NS']
 
-Analyze('hdfc.NS',start_date,end_date,200)
-    
+Analyze('500408',start_date,end_date,10)
